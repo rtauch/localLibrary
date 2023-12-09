@@ -5,9 +5,14 @@ block content
 
   ul
     each author in author_list
-      li
-        a(href=author.url) #{author.name}
-        |  (#{author.date_of_birth_formatted} - #{author.date_of_death_formatted})
+        if author.date_of_birth && author.date_of_death
+            li
+                a(href=author.url) #{author.name}
+                |  (#{author.date_of_birth_formatted} - #{author.date_of_death_formatted})
+        
+        else
+            li
+                a(href=author.url) #{author.name}
 
     else
       li There are no authors.
