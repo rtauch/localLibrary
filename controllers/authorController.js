@@ -161,7 +161,6 @@ exports.author_update_get = asyncHandler(async (req, res, next) => {
 
   res.render("author_form", {
     title: "Update Author",
-    books: allBooks,
     author: author,
   });
 });
@@ -199,7 +198,7 @@ exports.author_update_post = [
         const author = new Author({
           first_name: req.body.first_name,
           family_name: req.body.family_name,
-          date_of_birth: req.body.summary,
+          date_of_birth: req.body.date_of_birth,
           date_of_death: req.body.date_of_death,
           _id: req.params.id,
         });

@@ -30,11 +30,11 @@ AuthorSchema.virtual("url").get(function () {
 
 
 AuthorSchema.virtual("date_of_birth_formatted").get(function () {
-  return DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
+  return DateTime.fromJSDate(this.date_of_birth).toISODate();
 });
   
 AuthorSchema.virtual("date_of_death_formatted").get(function () {
-  return DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED);
+  return DateTime.fromJSDate(this.date_of_death).toISODate();
 });
 
 AuthorSchema.virtual("lifespan").get(function () {
