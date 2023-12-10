@@ -35,7 +35,7 @@ exports.book_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific book.
 exports.book_detail = asyncHandler(async (req, res, next) => {
-    // Get details of a specific book
+    // Get details of book
     const book = await Book.findById(req.params.id).populate("author").exec();
   
     if (book === null) {
@@ -95,7 +95,7 @@ exports.book_create_post = [
       if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values/error messages.
   
-        // Get all authors and genres for form.
+        // Get all authors for form.
         const allAuthors = await Author.find().sort({ family_name: 1 }).exec();
   
         res.render("book_form", {
@@ -192,7 +192,7 @@ exports.book_update_post = [
       if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values/error messages.
   
-        // Get all authors and genres for form
+        // Get all authors for form
         const allAuthors = await Author.find().sort({ family_name: 1 }).exec();
   
         res.render("book_form", {
